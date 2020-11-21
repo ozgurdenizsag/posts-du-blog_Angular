@@ -1,0 +1,16 @@
+<div class="row">
+  <h2>{{ categorie }} <span class="pull-right" >Total : {{ timeString }}</span> </h2>
+
+  <ul>
+    <app-single-tache *ngFor="let tache of taches;"
+      [id] = "tache.id"
+      [nom] = "tache.nom"
+      [duree] = "tache.duree"
+      [date_active]= "tache.date_active"
+      [notes] = "tache.notes"
+      [status] = "tache.status"
+      [importance] = "tache.importance"
+      [categorie] = "tache.categorie"
+    ></app-single-tache>
+  </ul>
+</div>

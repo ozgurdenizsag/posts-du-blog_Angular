@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Modifier une tache</h2>
+    <form [formGroup]="historyForm" (ngSubmit)="onSubmitForm()">
+      <div class="form-group">
+        <label for="debut">
+          Debut :
+        </label>
+        <input type="datetime-local" id="debut" class="form-control" name="debut" formControlName="debut">
+      </div>
+      <div class="form-group">
+        <label for="fin">
+          Fin :
+        </label>
+        <input type="datetime-local" id="fin" class="form-control" name="fin" formControlName="fin">
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="historyForm.invalid">Enregistrer</button>
+    </form>
+  </div>
+</div>

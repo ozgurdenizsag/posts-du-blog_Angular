@@ -1,0 +1,17 @@
+<div class="list-group-item">
+  <button class="btn btn-default pull-right" (click)="onDeleteHistorie()">
+    Delete
+  </button>
+  <button class="btn btn-default pull-right" (click)="onModifierHistorie()">
+    Edit
+  </button>
+  <h3 class="list-group-item-heading">
+    <p *ngIf="nomTache === ''">Tache effacé</p>
+    <p *ngIf="nomTache !== ''">{{ nomTache }}</p>
+  </h3>
+  <h4 class="list-group-item-heading">
+    <p>Début : {{ debutString }}</p>
+    <p *ngIf="fin === ''">Vous etes encore dessus !</p>
+    <p *ngIf="fin !== ''">Fin : {{ finString }}</p>
+  </h4>
+</div>

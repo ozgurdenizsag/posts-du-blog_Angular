@@ -1,0 +1,19 @@
+<li [ngClass]="{'list-group-item' : true,
+                'list-group-item-success' : importance === 'leger',
+                'list-group-item-warning' : importance === 'moyenne',
+                'list-group-item-danger' : importance === 'importante'}">
+  <div class="row">
+    <h4>Taches : {{ nom }} -- Status : {{ status }} </h4>
+    <span class="pull-right" >{{ timeString }}</span>
+  </div>
+    <div class="row" aria-label="Basic example">
+      <button class="btn btn-default mt-1" (click)="onOnClick()"  *ngIf="status === 'off'">Play</button>
+      <button class="btn btn-default mt-1" (click)="onOffClick()" *ngIf="status === 'on'">Pause</button>
+      <button class="btn btn-default mt-1" (click)="onDetailsClick()">Edit</button>
+      <button class="btn btn-default mt-1" (click)="onDeleteClick()">Delete</button>
+    </div>
+  <ul *ngIf="notes && notes.length > 0">
+    Notes :
+    <li *ngFor="let note of notes">{{ note }} </li>
+  </ul>
+</li>

@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Historique</h2>
+    <div>
+      <app-single-histoire
+        *ngFor="let history of histories;"
+        [id] = "history.id"
+        [debut] = "history.debut"
+        [fin] = "history.fin"
+        [idTache] = "history.idTache"
+      ></app-single-histoire>
+    </div>
+  </div>
+</div>

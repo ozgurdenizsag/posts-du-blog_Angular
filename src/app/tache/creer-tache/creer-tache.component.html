@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Créer une tache</h2>
+    <form [formGroup]="tacheForm" (ngSubmit)="onSubmitForm()">
+      <div class="form-group">
+        <label for="nom">
+          Nom de la tache
+        </label>
+        <input type="text" id="nom" class="form-control" name="nom" formControlName="nom">
+      </div>
+      <div class="form-group">
+        <label for="status">
+          Status de la tache
+        </label>
+        <select id="status" class="form-control" name="status" formControlName="status">
+          <option value="on">On</option>
+          <option value="off">Off</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="importance">
+          Importance de la tache
+        </label>
+        <select id="importance" class="form-control" name="importance" formControlName="importance">
+          <option value="leger">Léger</option>
+          <option value="moyenne">Moyenne</option>
+          <option value="importante">Importante</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="categorie">
+          Categorie de la tache
+        </label>
+        <input type="text" id="categorie" class="form-control" name="categorie" formControlName="categorie">
+      </div>
+      <div formArrayName="notes">
+        <h3>Vos notes</h3>
+        <div class="form-group" *ngFor="let noteControl of getNotes().controls;let i = index">
+          <p>
+            <input type="text" class="form-control" [formControlName]="i">
+            <button class="btn btn-default pull-right" (click)="onDeleteNote(i)">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </p>
+        </div>
+        <button type="button" class="btn btn-default" (click)="onAddNote()">Ajouter une note</button>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="tacheForm.invalid">Enregistrer</button>
+    </form>
+  </div>
+</div>
